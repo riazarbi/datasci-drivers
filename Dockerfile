@@ -1,8 +1,8 @@
-# Lock to a particular Ubuntu image
-ARG BASE_CONTAINER=riazarbi/docker-r-base:latest
-FROM $BASE_CONTAINER
+FROM riazarbi/datasci-base:latest
 
 LABEL authors="Riaz Arbi,Gordon Inggs"
+
+USER root
 
 # DRIVERS =======================================================
 # JAVA
