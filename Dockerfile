@@ -2,8 +2,6 @@ FROM riazarbi/datasci-base:latest
 
 LABEL authors="Riaz Arbi,Gordon Inggs"
 
-USER root
-
 # DRIVERS =======================================================
 
 # Set LD library path
@@ -45,5 +43,3 @@ RUN DEBIAN_FRONTEND=noninteractive \
  && ldconfig \
  && echo "[Oracle Driver 18.3]\nDescription=Oracle Unicode driver\nDriver=/usr/lib/oracle/18.3/client64/lib/libsqora.so.18.1\nUsageCount=1\nFileUsage=1" \
   >> /etc/odbcinst.ini
-
-
