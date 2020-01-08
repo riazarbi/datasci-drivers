@@ -23,13 +23,13 @@ RUN DEBIAN_FRONTEND=noninteractive \
     libaio1 \
     alien \
 # Microsoft driver
-# && wget https://packages.microsoft.com/keys/microsoft.asc -O microsoft.asc && \
-#    apt-key add microsoft.asc && \
-#    wget https://packages.microsoft.com/config/ubuntu/18.04/prod.list -O prod.list && \
-#    cp prod.list /etc/apt/sources.list.d/mssql-release.list && \
-#    apt-get update && \
-#    ACCEPT_EULA=Y apt-get install -y \
-#    msodbcsql17 \
+ && wget https://packages.microsoft.com/keys/microsoft.asc -O microsoft.asc && \
+    apt-key add microsoft.asc && \
+    wget https://packages.microsoft.com/config/ubuntu/18.04/prod.list -O prod.list && \
+    cp prod.list /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install -y \
+    msodbcsql17 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
 # Note: we've dropped Selenium because a better pattern is deploying a sidecar Selenium container
