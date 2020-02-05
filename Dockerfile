@@ -10,9 +10,6 @@ ENV JAVA_DRIVER /opt/jdbc/ngdbc-2.4.62.jar
 # ODBC
 EXPOSE 1433
 
-RUN mkdir /opt/jdbc
-COPY ngbdc-2.4.62.jar /opt/jdbc/
-
 # JAVA
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
