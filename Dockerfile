@@ -2,14 +2,8 @@ FROM riazarbi/datasci-base:latest
 
 LABEL authors="Riaz Arbi,Gordon Inggs"
 
-# DRIVERS =======================================================
-
-# Set LD library path
-ENV LD_LIBRARY_PATH /usr/lib/oracle/18.3/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-ENV JAVA_DRIVER /opt/jdbc/ngdbc-2.4.62.jar
-# ODBC
 EXPOSE 1433
-
+# DRIVERS =======================================================
 # JAVA
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
@@ -44,3 +38,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
  && ldconfig \
  && echo "[Oracle Driver 18.3]\nDescription=Oracle Unicode driver\nDriver=/usr/lib/oracle/18.3/client64/lib/libsqora.so.18.1\nUsageCount=1\nFileUsage=1" \
   >> /etc/odbcinst.ini \  
+
+# Set LD library path
+ENV LD_LIBRARY_PATH /usr/lib/oracle/18.3/client64/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
